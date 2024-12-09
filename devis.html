@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Devis - Flexi Pods</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Flexi Pods" name="keywords">
+    <meta content="Flexi Pods" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Batna, Batna,
+                    Algérie</small>
+                <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+2137 95808490</small>
+                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@Flexipods.com</small>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i
+                        class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<style>
+
+    .form-container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .form-header h1 {
+        color: #273526;
+    }
+
+    .form-section {
+        margin-bottom: 30px;
+    }
+
+    .form-section h3 {
+        color: #C0CEB4;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+
+    .btn-primary {
+        background-color: #273526;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #C0CEB4;
+    }
+
+    .form-textarea {
+        min-height: 100px;
+    }
+
+    .datepicker {
+        cursor: pointer;
+    }
+
+    .quantity-input {
+        width: 80px;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Demande de Devis</h1>
+                <p>Remplissez ce formulaire pour recevoir un devis personnalisé</p>
+            </div>
+            <form action="generate_pdf.php" method="POST">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3>Informations Personnelles</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="full-name" class="form-label">Nom complet</label>
+                            <input type="text" id="full-name" name="full_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Numéro de téléphone</label>
+                            <input type="text" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="address" class="form-label">Adresse</label>
+                            <input type="text" id="address" name="address" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Type Section -->
+                <div class="form-section">
+                    <h3>Type d'événement</h3>
+                    <select class="form-select" name="event_type" required>
+                        <option value="" disabled selected>Choisissez un type d'événement</option>
+                        <option value="Mariage">Mariage</option>
+                        <option value="Anniversaire">Anniversaire</option>
+                        <option value="Conférence">Conférence</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <textarea name="event_notes" class="form-control form-textarea mt-3"
+                        placeholder="Autres détails sur l'événement"></textarea>
+                </div>
+
+            <!-- Date Picker Section -->
+            <div class="form-section">
+                <h3>Date de l'événement</h3>
+                <label for="event-dates" class="form-label">Sélectionnez la période</label>
+                <div id="inline-calendar"></div>
+            </div>
+            
+            <!-- Flatpickr Integration -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script>
+                flatpickr("#inline-calendar", {
+                    mode: "range", // Enables range selection
+                    inline: true, // Directly displays the calendar
+                    enableTime: false,
+                    dateFormat: "d-m-Y",
+                    locale: "fr",
+                    minDate: "today", // Prevents selecting past dates
+                    onClose: function (selectedDates, dateStr, instance) {
+                        console.log("Dates sélectionnées :", dateStr);
+                    }
+                });
+            </script>
+
+
+
+                <!-- Service Type Section -->
+                <div class="form-section">
+                    <h3>Type de service souhaité</h3>
+                    <select class="form-select" name="service_type" required>
+                        <option value="" disabled selected>Choisissez un service</option>
+                        <option value="Organisation complète">Organisation complète</option>
+                        <option value="Location d'équipements">Location d'équipements</option>
+                        <option value="Design intérieur">Design intérieur</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    <textarea name="service_notes" class="form-control form-textarea mt-3"
+                        placeholder="Autres détails sur le service"></textarea>
+                </div>
+
+                <!-- Human Resources Section -->
+                <div class="form-section">
+                    <h3>Ressources humaines</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="organizers" class="form-label">Organisateurs</label>
+                            <input type="number" id="organizers" name="organizers" class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="photographers" class="form-label">Photographes</label>
+                            <input type="number" id="photographers" name="photographers"
+                                class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="security" class="form-label">Agents de sécurité</label>
+                            <input type="number" id="security" name="security" class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="other_hr" class="form-label">Autres besoins</label>
+                            <textarea name="other_hr" id="other_hr" class="form-control form-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logistics Section -->
+                <div class="form-section">
+                    <h3>Logistique</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="chairs" class="form-label">Chaises</label>
+                            <input type="number" id="chairs" name="chairs" class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pouffes" class="form-label">Pouffes</label>
+                            <input type="number" id="pouffes" name="pouffes" class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tables" class="form-label">Tables</label>
+                            <input type="number" id="tables" name="tables" class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="small-tables" class="form-label">Tables basses</label>
+                            <input type="number" id="small-tables" name="small_tables"
+                                class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="flower-stands" class="form-label">Stands à fleurs</label>
+                            <input type="number" id="flower-stands" name="flower_stands"
+                                class="form-control quantity-input">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="charging-stations" class="form-label">Stations de recharge</label>
+                            <input type="number" id="charging-stations" name="charging_stations"
+                                class="form-control quantity-input">
+                        </div>
+                    </div>
+                    <textarea name="logistics_notes" class="form-control form-textarea mt-3"
+                        placeholder="Autres besoins logistiques"></textarea>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="form-section text-center">
+                    <h3>Recevoir mon devis</h3>
+                    <p>Cliquez sur le bouton ci-dessous pour recevoir un devis :</p>
+                    <button id="download-pdf" class="btn btn-primary px-5">Recevoir mon devis</button>
+                </div>
+                
+                <script>
+                    // List of PDF files
+                    const pdfFiles = [
+                        "pdfs/DEVIS.pdf",
+                        "pdfs/DEVIS1.pdf"
+                    ];
+
+                    // Function to handle random PDF download
+                    document.getElementById("download-pdf").addEventListener("click", function () {
+                        // Randomly select a PDF file
+                        const randomIndex = Math.floor(Math.random() * pdfFiles.length);
+                        const selectedPdf = pdfFiles[randomIndex];
+
+                        // Create an anchor element and trigger download
+                        const link = document.createElement("a");
+                        link.href = selectedPdf;
+                        link.download = selectedPdf.split("/").pop(); // Extract file name
+                        link.click();
+                    });
+                </script>
+
+            </form>
+        </div>
+    </div>
+
+    
+
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="row gx-5">
+                    <!-- About Section -->
+                    <div class="col-lg-4 col-md-6 footer-about">
+                        <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4"
+                            style="background-color: #C0CEB4ff;">
+                            <a href="index.html" class="navbar-brand">
+                                <img src="img/logo.png" alt="FlexiPods Logo" style="height: 150px;">
+                            </a>
+                            <p class="mt-3 mb-4">
+                                FlexiPods offre des solutions modulaires innovantes pour tous vos besoins en gestion
+                                d'espaces
+                                et d'événements.
+                                Nos services allient créativité, durabilité, et fonctionnalité pour transformer vos
+                                projets en
+                                succès.
+                            </p>
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="email" class="form-control border-white p-3" placeholder="Votre Email">
+                                    <button class="btn btn-dark">S'inscrire</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- Contact Section -->
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row gx-5">
+                            <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                                <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                    <h3 class="text-light mb-0">Contactez-Nous</h3>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <i class="bi bi-geo-alt text-primary me-2"></i>
+                                    <p class="mb-0">123 Rue Principale, Alger, Algérie</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <i class="bi bi-envelope-open text-primary me-2"></i>
+                                    <p class="mb-0">contact@flexipods.com</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <i class="bi bi-telephone text-primary me-2"></i>
+                                    <p class="mb-0">+213 795808490</p>
+                                </div>
+                                <div class="d-flex mt-4">
+                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                            class="fab fa-twitter fw-normal"></i></a>
+                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                            class="fab fa-facebook-f fw-normal"></i></a>
+                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                            class="fab fa-linkedin-in fw-normal"></i></a>
+                                    <a class="btn btn-primary btn-square" href="#"><i
+                                            class="fab fa-instagram fw-normal"></i></a>
+                                </div>
+                            </div>
+                            <!-- Quick Links -->
+                            <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                                <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                    <h3 class="text-light mb-0">Liens Rapides</h3>
+                                </div>
+                                <div class="link-animated d-flex flex-column justify-content-start">
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>À
+                                        Propos</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Nos
+                                        Services</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Équipe</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Blog</a>
+                                    <a class="text-light" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
+                                </div>
+                            </div>
+                            <!-- Popular Links -->
+                            <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                                <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                    <h3 class="text-light mb-0">Liens Populaires</h3>
+                                </div>
+                                <div class="link-animated d-flex flex-column justify-content-start">
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>À
+                                        Propos</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Nos
+                                        Services</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Équipe</a>
+                                    <a class="text-light mb-2" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Blog</a>
+                                    <a class="text-light" href="#"><i
+                                            class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid text-white" style="background: #C0CEB4ff;">
+                <div class="container text-center">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                                <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">FlexiPods</a>. Tous
+                                    Droits
+                                    Réservés.
+                                    Conçu par <a class="text-white border-bottom">NaBih Abdessemed</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+</body>
+
+</html>
